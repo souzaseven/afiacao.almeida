@@ -229,6 +229,48 @@ header nav ul li a:hover {
         }
 
         /* Seção de Certificado */
+/* Seção de Certificado */
+#bannercertificada {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f8f9fa; /* Fundo claro para a seção */
+}
+
+.bannercertificada {
+    max-width: 100%; /* A largura máxima é 100% da tela */
+    margin: 0 auto;
+    overflow: hidden; /* Evita que a imagem ultrapasse os limites */
+}
+
+.bannercertificada img {
+    width: 100%; /* A imagem ocupa 100% da largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    display: block; /* Remove espaços extras abaixo da imagem */
+    margin: 0 auto; /* Centraliza a imagem */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    #bannercertificada {
+        padding: 30px 10px; /* Reduz o padding em telas menores */
+    }
+
+    .bannercertificada img {
+        border-radius: 5px; /* Bordas mais suaves em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    #bannercertificada {
+        padding: 20px 10px; /* Padding ainda menor para smartphones */
+    }
+
+    .bannercertificada img {
+        border-radius: 0; /* Remove bordas arredondadas em telas muito pequenas */
+    }
+}
       /* Seção de Certificado */
 #certificado {
     padding: 50px 20px;
