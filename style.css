@@ -477,6 +477,7 @@ header nav ul li a:hover {
 .floating-wpp .floating-wpp-btn-send { margin-left: 12px; font-size: 0; cursor: pointer }
 
 
+
 /* Tooltip do WhatsApp */
 #floating-tooltip {
     position: fixed;
@@ -495,3 +496,84 @@ header nav ul li a:hover {
     word-wrap: break-word; /* Permite quebra de linha se necessário */
 }
 
+/* Estilos para a seção de horários em formato de calendário */
+.horarios-calendario {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.horarios-calendario h3 {
+    font-size: 1.8em; /* Tamanho maior para o título */
+    margin-bottom: 20px;
+    color: #004d40;
+    font-weight: bold;
+}
+
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 colunas para os dias da semana */
+    gap: 15px; /* Espaçamento maior entre os dias */
+    max-width: 1000px; /* Largura máxima maior */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Fundo claro para a grade */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+}
+
+.dia {
+    background-color: #ffffff; /* Fundo branco para cada dia */
+    padding: 20px; /* Espaçamento interno maior */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+}
+
+.dia:hover {
+    transform: translateY(-5px); /* Efeito de levantar ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
+}
+
+.dia span {
+    font-weight: bold;
+    color: #004d40;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em; /* Tamanho maior para o nome do dia */
+}
+
+.dia p {
+    margin: 0;
+    color: #333;
+    font-size: 1.1em; /* Tamanho maior para o horário */
+}
+
+/* Estilo para o dia atual */
+.dia.atual {
+    background-color: #80deea; /* Cor de destaque para o dia atual */
+    border: 2px solid #00796b; /* Borda para dar mais destaque */
+    transform: scale(1.05); /* Efeito de zoom */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+}
+
+.dia.atual span {
+    color: #004d40; /* Cor do texto para o dia atual */
+}
+
+.dia.atual p {
+    color: #004d40; /* Cor do texto para o horário do dia atual */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .calendario-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .calendario-grid {
+        grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+    }
+}
