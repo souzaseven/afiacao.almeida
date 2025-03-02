@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afiação Almeida - Especialista em Afiação de Equipamentos de Manicure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #004d40;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo img {
+            max-width: 120px;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #80deea;
+        }
+
+        /* Botões */
+        .btn {
+            padding: 10px 20px;
+            background-color: #80deea;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #00796b;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Banner */
+        .banner {
+            text-align: center;
+            padding: 150px 20px;
+            background: linear-gradient(135deg, #004d40, #80deea);
+            color: white;
+        }
+
+        .banner h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .banner p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* Seção de Serviços */
+        #servicos {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .servicos-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .servicos-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Seção de Galeria */
+        #galeria {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #e0f2f1;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .galeria-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .galeria-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #ccc;
+        }
+
+        /* Seção de Certificado */
+        #certificado {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #certificado .galeria-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Seção de Contato */
+        #contato {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #e0f2f1;
+        }
+
+        #contato form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #contato input, #contato textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #contato button {
+            width: 100%;
+            padding: 10px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #contato button:hover {
+            background-color: #128C7E;
+        }
+
+        #contato p {
+            margin-top: 20px;
+        }
+
+        #contato a {
+            color: #004d40;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #contato a:hover {
+            color: #00796b;
+        }
+
+        /* Redes Sociais */
+        #redes-sociais {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #e0f2f1;
+        }
+
+        #redes-sociais h2 {
+            margin-bottom: 20px;
+        }
+
+        #redes-sociais a {
+            margin: 0 10px;
+            font-size: 20px;
+            color: #004d40;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        #redes-sociais a:hover {
+            color: #00796b;
+        }
+
+        #redes-sociais img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+        }
+
+        .whatsapp-float img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #1ebe57;
+        }
+
+        /* Tooltip do WhatsApp */
+        #floating-tooltip {
+            position: fixed;
+            bottom: 30px;
+            right: 90px;
+            background-color: #25d366;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #004d40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 2em;
+                margin-top: 10px;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                padding-top: 10px;
+            }
+
+            header nav ul li {
+                margin: 10px 0;
+            }
+
+            .banner {
+                padding: 100px 20px;
+            }
+
+            .banner h1 {
+                font-size: 2em;
+            }
+
+            .banner p {
+                font-size: 1em;
+            }
+
+            .servicos-grid, .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                bottom: 80px;
+                right: 20px;
+                padding: 10px 15px;
+                border-radius: 10px;
+                font-size: 16px;
+                width: auto;
+                height: auto;
+            }
+
+            #floating-tooltip {
+                bottom: 90px;
+                right: 90px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./img/logo3.png" alt="Afiação Almeida">
+        </div>
+        <h1>Afiação Almeida</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#servicos">Horários</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="banner">
+            <h1>Afiação Profissional para Seus Equipamentos</h1>
+            <p>Serviço especializado para garantir precisão e qualidade.</p>
+            <a href="#contato" class="btn">Solicitar Orçamento</a>
+        </div>
+    </section>
+
+    <section id="servicos">
+        <h2>Horários</h2>
+        <div class="servicos-grid">
+            <img src="./img/horarios-de-atendimento.png" alt="Horários de Atendimento">
+            <img src="./img/horarios-de-coleta-entrega.png" alt="Horários de Coleta e Entrega">
+        </div>
+    </section>
+
+    <section id="galeria">
+        <h2>Galeria de Serviços</h2>
+        <div class="galeria-grid">
+            <img src="./img/alicate-de-cuticula-mais-espatula2-350x350.jpg" alt="Galeria 1">
+            <img src="./img/alicate.jpeg" alt="Galeria 2">
+            <img src="./img/kit-alicate-cuticula-unha-tesoura-espatula-2molinhas-de-brindecom-350x350.jpg" alt="Galeria 3">
+            <img src="./img/kit-alicate-cuticula-unha-tesoura-.jpg" alt="Galeria 4">
+        </div>
+    </section>
+
+    <section id="certificado">
+        <h2>Certificado de Qualidade</h2>
+        <div class="galeria-grid">
+            <img src="./img/certificado-mundial.png" alt="Certificado de Qualidade">
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <form id="whatsappForm">
+            <input type="text" id="nome" placeholder="Seu Nome" required>
+            <input type="text" id="whatsapp" placeholder="Seu WhatsApp" required>
+            <textarea id="mensagem" placeholder="Sua Mensagem"></textarea>
+            <button type="submit" class="btn">Enviar Mensagem</button>
+        </form>
+        <p>🏠 Endereço: R Raimundo Dias Dos Santos (19 A), 2876 W, Jd Morada Do Sol (Valência 1)</p>
+        <a href="https://maps.app.goo.gl/oSWXuMCe9yxFrSB7A" target="_blank">Ver no Mapa</a>
+    </section>
+
+    <section id="redes-sociais">
+        <h2>Siga-nos nas Redes Sociais</h2>
+        <a href="https://www.facebook.com/profile.php?id=61572962861768" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            Facebook
+        </a>
+        <a href="https://www.instagram.com/afiacaoalmeida/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+            Instagram
+        </a>
+    </section>
+
+    <a href="https://wa.me/556596762667" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <div id="floating-tooltip">Enviar mensagem</div>
+
+    <!-- Modal para expandir imagens -->
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img id="modalImg" src="" alt="Imagem expandida">
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Afiação Almeida. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Script para abrir o modal ao clicar nas imagens
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modalImg');
+        const closeModal = document.querySelector('.close');
+
+        // Seleciona todas as imagens nas seções de serviços e galeria
+        const images = document.querySelectorAll('.servicos-grid img, .galeria-grid img');
+
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                modal.classList.add('active');
+                modalImg.src = img.src;
+            });
+        });
+
+        // Fecha o modal ao clicar no botão de fechar
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        // Fecha o modal ao clicar fora da imagem
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Script para o formulário do WhatsApp
+        document.getElementById('whatsappForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Impede o envio padrão do formulário
+
+            // Captura os valores dos campos
+            const nome = document.getElementById('nome').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // Formata a mensagem para o WhatsApp
+            const texto = `Olá, meu nome é ${nome}. Queria ver sobre ${mensagem}`;
+            const url = `https://wa.me/556596762667?text=${encodeURIComponent(texto)}`;
+
+            // Redireciona para o WhatsApp
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
